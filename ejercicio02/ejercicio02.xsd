@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="plataforma">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="cursos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="curso" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="alumnos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="alumno" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="matriculas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="matricula" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="evaluaciones">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="evaluacion" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+      <xs:attribute name="fecha_publicacion" type="xs:date"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="curso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="titulo" type="xs:string"/>
+        <xs:element name="nivel" type="nivelCurso"/>
+        <xs:element name="modalidad" type="modCurso"/>
+        <xs:element name="horas" type="xs:positiveInteger"/>
+        <xs:element name="modulos" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="modulo" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="modulo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="horas" type="xs:positiveInteger"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="alumno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="email" type="tipoEmail"/>
+        <xs:element name="telefono" type="tipoTelefono" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="matricula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fecha_alta" type="xs:date"/>
+        <xs:element name="estado" type="xs:string"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attribute name="alumnoRef" type="xs:IDREF"/>
+      <xs:attribute name="cursoRef" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="evaluacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="instrumento" type="xs:string"/>
+        <xs:element name="convocatoria" type="xs:string"/>
+        <xs:element name="nota" type="xs:decimal"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attribute name="matriculaRef" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="nivelCurso">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="básico|medio|superior"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="modCurso">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="presencial|online"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoEmail">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([a-z])+\@([a-z])+\.([a-z])+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoTelefono">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:pattern value="[0-9]{9}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

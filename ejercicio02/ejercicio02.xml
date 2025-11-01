@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-model href="ejercicio02.dtd" type="application/xml-dtd"?>
+<plataforma fecha_publicacion="2025-11-01"> -->
+<plataforma fecha_publicacion="2025-11-01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejercicio02.xsd">
+  <cursos>
+    <curso id="c001">
+      <titulo>FP DAW</titulo>
+      <nivel>superior</nivel>
+      <modalidad>online</modalidad>
+      <horas>1200</horas>
+      <modulos>
+        <modulo>
+          <nombre>LdM</nombre>
+          <horas>300</horas>
+        </modulo>
+        <modulo>
+          <nombre>MPO</nombre>
+          <horas>300</horas>
+          </modulo>
+      </modulos>
+    </curso>
+    <curso id="c002">
+      <titulo>Hackathon25</titulo>
+      <nivel>básico</nivel>
+      <modalidad>online</modalidad>
+      <horas>40</horas>
+    </curso>
+  </cursos>
+
+  <alumnos>
+    <alumno id="a001">
+      <nombre>Fulanito Perez</nombre>
+      <email>fulanitop@ejemplo.com</email>
+      <telefono>666111222</telefono>
+    </alumno>
+    <alumno id="a002">
+      <nombre>Menganita Jimenez</nombre>
+      <email>menganitaj@ejemplo.com</email>
+    </alumno>
+  </alumnos>
+
+  <matriculas>
+    <matricula id="m001" alumnoRef="a001" cursoRef="c001">
+      <fecha_alta>2025-11-01</fecha_alta>
+      <estado>en_curso</estado>
+    </matricula>
+    <matricula id="m002" alumnoRef="a002" cursoRef="c002">
+      <fecha_alta>2025-02-22</fecha_alta>
+      <estado>finalizado</estado>
+    </matricula>
+  </matriculas>
+
+  <evaluaciones>
+    <evaluacion id="e001" matriculaRef="m001">
+      <instrumento>examen</instrumento>
+      <convocatoria>febrero_2025</convocatoria>
+      <nota>8.5</nota>
+    </evaluacion>
+    <evaluacion id="e002" matriculaRef="m002">
+      <instrumento>proyecto</instrumento>
+      <convocatoria>agosto_2025</convocatoria>
+      <nota>10</nota>
+    </evaluacion>
+  </evaluaciones>
+</plataforma>
