@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE library SYSTEM "ejercicio03.dtd">
+<library> -->
+<library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejercicio03.xsd">
+  <book>
+    <title>El Señor de los anillos</title>
+    <author>J.R.R. Tolkien</author>
+    <year>1954</year>
+    <publisher>Minotauro</publisher>
+    <pages>1250</pages>
+  </book>
+  <book>
+    <title>El Nombre del Viento</title>
+    <author>Patrick Rothfuss</author>
+    <year>2007</year>
+    <publisher>DAW Books</publisher>
+    <pages>613</pages>
+  </book>
+</library>
