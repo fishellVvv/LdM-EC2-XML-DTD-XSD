@@ -1,6 +1,6 @@
 <!ELEMENT library (book+)>
 
-<!-- book -->
+<!-- LIBRO -->
 <!ELEMENT book (title, author, year, publisher, pages)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT author (#PCDATA)>

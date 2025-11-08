@@ -34,4 +34,4 @@ Resolver tres ejercicios prácticos sobre **XML**, **DTD** y **XSD**.
 
 ## Autor
 
-Víctor G. V. — FP DAW (EC2)
+Víctor G. V. — FP DAW
